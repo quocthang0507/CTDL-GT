@@ -1,0 +1,12 @@
+LD30432 Nguyen_Vo Lam_Dong 4 4000000
+LD12045 Nguyen_Tuan Lam_Dong 1 2500000
+LD13210 Ly_Van_Hoa Ninh_Thuan 4 4000000
+LD13452 Tran_Ngoc Khanh_Hoa 6 5500000
+LD14432 Nguyen_Vo Phu_Yen 4 4000000
+LD15332 Le_Thi_Lieu Binh_Dinh 4 4000000
+LD22032 Van_Thi_Hoa Lam_Dong 2 3000000
+LD22052 Vo_Hoang Lam_Dong 1 3000000
+LD22140 Tran_Vuong Binh_Dinh 3 3200000
+LD22145 Le_Thi_Vo Khanh_Hoa 3 3200000
+LD23045 Tran_Nguyen Ha_Noi 6 6000000
+LD24042 Ly_Van_Hoa Ha_Noi 4 4000000
