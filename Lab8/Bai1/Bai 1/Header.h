@@ -3,15 +3,15 @@ typedef int KeyType;
 struct BSNode
 {
 	KeyType key;
-	BSNode *left;
-	BSNode *right;
+	BSNode* left;
+	BSNode* right;
 };
 
-typedef BSNode *BSTree;
+typedef BSNode* BSTree;
 
-BSNode *CreatNode(KeyType x)
+BSNode* CreatNode(KeyType x)
 {
-	BSNode *p = new BSNode;
+	BSNode* p = new BSNode;
 	if (p != NULL)
 	{
 		p->key = x;
@@ -21,12 +21,12 @@ BSNode *CreatNode(KeyType x)
 	return p;
 }
 
-void CreatBST(BSTree &root)
+void CreatBST(BSTree& root)
 {
 	root = NULL;
 }
 
-int InsertNode(BSTree &root, KeyType x)
+int InsertNode(BSTree& root, KeyType x)
 {
 	if (root != NULL)
 	{
@@ -43,7 +43,7 @@ int InsertNode(BSTree &root, KeyType x)
 	return 1;
 }
 
-int File_BST(BSTree &root, char *filename)
+int File_BST(BSTree& root, char* filename)
 {
 	ifstream in(filename);
 	if (!in)

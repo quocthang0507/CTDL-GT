@@ -12,8 +12,8 @@ void ChayChuongTrinh();
 
 int main()
 {
-    ChayChuongTrinh();
-    return 1;
+	ChayChuongTrinh();
+	return 1;
 }
 
 void ChayChuongTrinh()
@@ -24,5 +24,5 @@ void ChayChuongTrinh()
 	{
 		menu = ChonMenu(soMenu);
 		XuLyMenu(menu, root);
-	} while (menu>0);
+	} while (menu > 0);
 }

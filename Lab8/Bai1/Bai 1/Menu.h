@@ -32,7 +32,7 @@ int ChonMenu(int soMenu)
 	return stt;
 }
 
-void XuLyMenu(int menu, BSTree &root)
+void XuLyMenu(int menu, BSTree& root)
 {
 	char filename[50];
 	int kq;
@@ -104,10 +104,10 @@ void XuLyMenu(int menu, BSTree &root)
 		if (kq == -1)
 			cout << "\n\nKhoa " << x << " khong co trong cay ";
 		else
-		if (kq == 0)
-			cout << "\nNut co khoa " << x << " khong la nut la";
-		else
-			cout << "\nNut co khoa " << x << " la nut la";
+			if (kq == 0)
+				cout << "\nNut co khoa " << x << " khong la nut la";
+			else
+				cout << "\nNut co khoa " << x << " la nut la";
 		cout << endl;
 		break;
 	case 7:
@@ -182,11 +182,11 @@ void XuLyMenu(int menu, BSTree &root)
 			break;
 		}
 		else
-		if (DeleteNode(x, root) != 0)
-		{
-			cout << "\nCay BST sau khi xoa khoa " << x << " :\n\n";
-			InOrder(root);
-		}
+			if (DeleteNode(x, root) != 0)
+			{
+				cout << "\nCay BST sau khi xoa khoa " << x << " :\n\n";
+				InOrder(root);
+			}
 		cout << endl;
 		break;
 	default:

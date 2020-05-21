@@ -79,11 +79,11 @@ int TinhChieuCao(BSTree root)
 	return h;
 }
 
-int TimMuc_x(BSTree root,KeyType x)
+int TimMuc_x(BSTree root, KeyType x)
 {
 	int muc = 0;
 	BSTree T = root;
-	while (T!=NULL)
+	while (T != NULL)
 	{
 		if (T->key == x)
 			return muc;
@@ -112,7 +112,7 @@ int SoSanhMuc(BSTree root, KeyType x, KeyType y)
 			return 0;
 }
 
-KeyType DeleteMin(BSTree &root)
+KeyType DeleteMin(BSTree& root)
 {
 	KeyType k;
 	if (root->left == NULL)
@@ -125,7 +125,7 @@ KeyType DeleteMin(BSTree &root)
 		return DeleteMin(root->left);
 }
 
-int DeleteNode(KeyType x, BSTree &root)
+int DeleteNode(KeyType x, BSTree& root)
 {
 	if (root != NULL)
 	{
@@ -134,7 +134,7 @@ int DeleteNode(KeyType x, BSTree &root)
 		else
 			if (x > root->key)
 				DeleteNode(x, root->right);
-			else 
+			else
 				if ((root->left == NULL) && (root->right == NULL))
 					root = NULL;
 				else
@@ -143,7 +143,7 @@ int DeleteNode(KeyType x, BSTree &root)
 					else
 						if (root->right == NULL)
 							root = root->left;
-						else 
+						else
 							root->key = DeleteMin(root->right);
 		return 1;
 	}
