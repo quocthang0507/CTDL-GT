@@ -1,11 +1,11 @@
 #define NULLDATA ' '
 #define MAX 100
 
-typedef char data;
+typedef char Data;
 
 struct tagNode
 {
-	data info;
+	Data info;
 	tagNode *pNext;
 };
 
@@ -17,20 +17,20 @@ struct Stack
 	Node *pTail;
 };
 
-Node *GetNode(data x);
+Node *GetNode(Data x);
 void CreatStack(Stack &s);
-void Push(Stack &s, data x);
+void Push(Stack &s, Data x);
 void XuatStack(Stack s);
 void Chuoi_Sang_Stack(Stack &s, char x[MAX]);
 void Stack_Sang_Chuoi(Stack s, char y[MAX]);
-data Pop(Stack &s);
+Data Pop(Stack &s);
 int Do_UuTien_ToanTu(char c);
 int LaToanTu(char c);
 void Chen_Cuoi_Chuoi(char a[MAX], char c);
 int LaKySo(char c);
 void TrungTo_HauTo(char sin[MAX], char sout[MAX]);
 
-Node *GetNode(data x)
+Node *GetNode(Data x)
 {
 	Node *p;
 	p = new Node;
@@ -47,7 +47,7 @@ void CreatStack(Stack &s)
 	s.pHead = s.pTail = NULL;
 }
 
-void Push(Stack &s, data x)
+void Push(Stack &s, Data x)
 {
 	Node *new_ele = GetNode(x);
 	if (new_ele == NULL)
@@ -67,9 +67,9 @@ void Push(Stack &s, data x)
 	}
 }
 
-data Pop(Stack &s)
+Data Pop(Stack &s)
 {
-	data x;
+	Data x;
 	Node *p;
 	if (s.pHead == NULL)
 	{
@@ -119,7 +119,7 @@ void TrungTo_HauTo(char sin[MAX], char sout[MAX])
 {
 	Stack s;
 	char c;
-	data x;
+	Data x;
 	int i;
 	CreatStack(s);
 	sout[0] = NULL;

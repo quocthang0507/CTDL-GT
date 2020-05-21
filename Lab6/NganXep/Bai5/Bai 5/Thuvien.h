@@ -1,10 +1,11 @@
+
 #define MAX 100
 
-typedef int data;
+typedef int Data;
 
 struct tagNode
 {
-	data info;
+	Data info;
 	tagNode *pNext;
 };
 
@@ -16,16 +17,16 @@ struct Stack
 	Node *pTail;
 };
 
-Node *GetNode(data x);
+Node *GetNode(Data x);
 void CreatStack(Stack &s);
-void Push(Stack &s, data x);
-data Pop(Stack &s);
+void Push(Stack &s, Data x);
+Data Pop(Stack &s);
 int LaToanTu(char c);
 int LaKySo(char c);
 int So(char c);
 int Tinh_BT_HauTo(char a[MAX]);
 
-Node *GetNode(data x)
+Node *GetNode(Data x)
 {
 	Node *p;
 	p = new Node;
@@ -42,7 +43,7 @@ void CreatStack(Stack &s)
 	s.pHead = s.pTail = NULL;
 }
 
-void Push(Stack &s, data x)
+void Push(Stack &s, Data x)
 {
 	Node *new_ele = GetNode(x);
 	if (new_ele == NULL)
@@ -62,9 +63,9 @@ void Push(Stack &s, data x)
 	}
 }
 
-data Pop(Stack &s)
+Data Pop(Stack &s)
 {
-	data x;
+	Data x;
 	Node *p;
 	if (s.pHead == NULL)
 	{
@@ -102,7 +103,7 @@ int Tinh_BT_HauTo(char a[MAX])
 {
 	int i;
 	char c;
-	data x, y;
+	Data x, y;
 	Stack s;
 	CreatStack(s);
 	for (i = 0; a[i] != NULL; i++)
