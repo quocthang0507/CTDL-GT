@@ -79,7 +79,7 @@ void XuLyMenu(int menu, BSTree& root)
 		cin >> x;
 		cout << "\n\nDanh sach cac nut cua BST co key < " << x << " :\n\n";
 		kq = DemNutNhoHon(root, x);
-		cout << "\n\nSo nut cua cay BST co key < " << x << " : " << kq;
+		cout << "\n\nSo nut cua cay BST co key < " << x << " (cach 1): " << kq;
 		cout << endl;
 		break;
 	case 5:
@@ -89,7 +89,7 @@ void XuLyMenu(int menu, BSTree& root)
 		cout << endl;
 		cout << "\nTim khoa x = ";
 		cin >> x;
-		if (Search(x, root))
+		if (TimKiem_VongLap(x, root))
 			cout << "\nKhoa x = " << x << " co trong cay.\n";
 		else
 			cout << "\nKhoa x = " << x << " khong co trong cay!\n";
@@ -132,10 +132,13 @@ void XuLyMenu(int menu, BSTree& root)
 		InOrder(root);
 		cout << "\n\nNhap x = ";
 		cin >> x;
-		if (!Search(x, root))
+		if (!TimKiem_DeQuy(x, root))
 			cout << "\nCay rong hoac Khong co nut nao co khoa " << x;
 		else
-			cout << "\nMuc cua nut co khoa " << x << " : " << TimMuc_x(root, x);
+		{
+			cout << "\nMuc cua nut co khoa " << x << " (vong lap): " << TimMuc_x_VongLap(root, x);
+			cout << "\nMuc cua nut co khoa " << x << " (de quy): " << TimMuc_x_VongLap(root, x);
+		}
 		cout << endl;
 		break;
 	case 10:
@@ -152,8 +155,8 @@ void XuLyMenu(int menu, BSTree& root)
 			cout << "\nMuc cua nut co khoa " << y << " sau hon muc cua nut co khoa " << x;
 		else
 			cout << "\nNut co khoa " << x << " va nut co khoa " << y << " cung muc";
-		cout << "\n\nMuc cua nut co khoa " << x << " : " << TimMuc_x(root, x);
-		cout << "\n\nMuc cua nut co khoa " << y << " : " << TimMuc_x(root, y);
+		cout << "\n\nMuc cua nut co khoa " << x << " : " << TimMuc_x_VongLap(root, x);
+		cout << "\n\nMuc cua nut co khoa " << y << " : " << TimMuc_x_VongLap(root, y);
 		break;
 	case 11:
 		cout << "\n11. Them khoa x vao cay\n";
@@ -176,13 +179,13 @@ void XuLyMenu(int menu, BSTree& root)
 		InOrder(root);
 		cout << "\n\nNhap x = ";
 		cin >> x;
-		if (!Search(x, root))
+		if (!TimKiem_DeQuy(x, root))
 		{
 			cout << "\nKhoa x = " << x << " khong co trong cay\n";
 			break;
 		}
 		else
-			if (DeleteNode(x, root) != 0)
+			if (Xoa_Nut_x(x, root) != 0)
 			{
 				cout << "\nCay BST sau khi xoa khoa " << x << " :\n\n";
 				InOrder(root);

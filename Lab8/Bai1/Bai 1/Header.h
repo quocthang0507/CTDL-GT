@@ -26,6 +26,9 @@ void CreatBST(BSTree& root)
 	root = NULL;
 }
 
+// Return 0 if it has the same key
+// Return -1 if it has problem with creating node
+// Return 1 if it has inserted x successfully
 int InsertNode(BSTree& root, KeyType x)
 {
 	if (root != NULL)
@@ -51,10 +54,11 @@ int File_BST(BSTree& root, char* filename)
 	KeyType x;
 	int kq;
 	CreatBST(root);
-	in >> x;
-	kq = InsertNode(root, x);
-	if (kq == 0 || kq == -1)
-		return 0;
+	/////////////Insert the first node/////////////
+	//in >> x;
+	//kq = InsertNode(root, x);
+	//if (kq == 0 || kq == -1)
+	//	return 0;
 	while (!in.eof())
 	{
 		in >> x;
@@ -66,6 +70,8 @@ int File_BST(BSTree& root, char* filename)
 	return 1;
 }
 
+//////////////////////BASIC ORDERS/////////////////////
+
 void PreOrder(BSTree root)
 {
 	if (root != NULL)
@@ -76,6 +82,7 @@ void PreOrder(BSTree root)
 	}
 }
 
+// Sorts array
 void InOrder(BSTree root)
 {
 	if (root != NULL)
