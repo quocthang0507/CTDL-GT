@@ -36,7 +36,7 @@ int TinhChieuCao(BSTree root)
 //Hàm xóa và trả về thông tin của nút nằm ngoài cùng bên trái (có mã nhân viên nhỏ nhất)
 //Phụ trợ cho hàm DeleteNode ở dưới
 //Sau khi xóa, lấy giá trị của nút bên phải thay vào
-NhanVien DeleteMin(BSTree &root)
+NhanVien DeleteMin(BSTree& root)
 {
 	NhanVien k;
 	if (root->left == NULL)
@@ -52,7 +52,7 @@ NhanVien DeleteMin(BSTree &root)
 //Hàm xóa một nhân viên ra khỏi BST
 //Yêu cầu phải tìm nhân viên đó trước khi dùng hàm này
 //Trả về 1 nếu thành công, ngược lại là không thành công
-int DeleteNode(NhanVien x, BSTree &root)
+int DeleteNode(NhanVien x, BSTree& root)
 {
 	if (root != NULL)
 	{
@@ -63,18 +63,18 @@ int DeleteNode(NhanVien x, BSTree &root)
 			DeleteNode(x, root->right);
 		//Nếu x.MaNV == root->info.MaNV
 			//Nếu nó không có 2 cây con trái phải
-			else if ((root->left == NULL) && (root->right == NULL))
-				root = NULL;
-			//Nếu nó không có cây con trái
-			else if (root->left == NULL)
-				root = root->right;
-			//Nếu nó không có cây con phải
-			else if (root->right == NULL)
-				root = root->left;
-			else
+		else if ((root->left == NULL) && (root->right == NULL))
+			root = NULL;
+		//Nếu nó không có cây con trái
+		else if (root->left == NULL)
+			root = root->right;
+		//Nếu nó không có cây con phải
+		else if (root->right == NULL)
+			root = root->left;
+		else
 			//Nếu nó có cả 2 cây con trái phải
-				root->info = DeleteMin(root->right);
-			return 1;
+			root->info = DeleteMin(root->right);
+		return 1;
 	}
 	return 0;
 }
@@ -99,4 +99,15 @@ NhanVien Search_Replace(KeyType x, BSTree root, double luong)
 			return Search_Replace(x, root->left, luong);
 	}
 	return NULL_DATA;
+}
+
+void DeleteNode_LuongNho(double luong, BSTree& root, BSTree temp)
+{
+	if (temp != NULL)
+	{
+		if (temp->info.luong < luong)
+			DeleteNode(temp->info, root);
+		DeleteNode_LuongNho(luong, root, temp->left);
+		DeleteNode_LuongNho(luong, root, temp->right);
+	}
 }

@@ -20,7 +20,7 @@ int main()
 
 void ChayChuongTrinh()
 {
-	int menu, soMenu = 6;
+	int menu, soMenu = 7;
 	BSTree root;
 	CreateBST(root);
 	do

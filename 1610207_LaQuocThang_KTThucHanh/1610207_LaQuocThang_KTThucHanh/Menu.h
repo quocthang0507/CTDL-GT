@@ -8,6 +8,7 @@ void XuatMenu()
 	cout << "\n4. Thay doi tien luong cua mot nhan vien";
 	cout << "\n5. Tinh chieu cao cua BST";
 	cout << "\n6. Huy nhan vien ra khoi danh sach voi ma nhan vien cho truoc";
+	cout << "\n7. Xoa nhan vien co luong nho hon x";
 	cout << "\n====================================================================";
 }
 
@@ -26,13 +27,14 @@ int ChonMenu(int soMenu)
 	return stt;
 }
 
-void XuLyMenu(int menu, BSTree &root)
+void XuLyMenu(int menu, BSTree& root)
 {
 	int kq;
 	KeyType maNV;
 	NhanVien x;
 	double luong;
 	int chieuCao;
+	BSTree temp;
 	system("CLS");
 	switch (menu)
 	{
@@ -134,6 +136,20 @@ void XuLyMenu(int menu, BSTree &root)
 		else
 			cout << "\nKhong tim thay nhan vien co ma nhan vien la " << maNV;
 		break;
+	case 7:
+		cout << "\n7. Xoa nhan vien co luong nho hon x\n";
+		cout << "\nDanh sach nhan vien theo thu tu NLR:\n";
+		Xuat_TieuDe();
+		PreOrder(root);
+		Xuat_KeDoi();
+		cout << "\n\nNhap luong can xoa : ";
+		cin >> luong;
+		temp = root;
+		DeleteNode_LuongNho(luong, root, temp);
+		cout << "\n\nDanh sach moi :\n";
+		Xuat_TieuDe();
+		PreOrder(root);
+		Xuat_KeDoi();
 	default:
 		break;
 	}
