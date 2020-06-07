@@ -9,6 +9,7 @@ void XuatMenu()
 	cout << "\n5. Tinh chieu cao cua BST";
 	cout << "\n6. Huy nhan vien ra khoi danh sach voi ma nhan vien cho truoc";
 	cout << "\n7. Xoa nhan vien co luong nho hon x";
+	cout << "\n8. Tim nhan vien co luong lon nhat va nho nhat";
 	cout << "\n====================================================================";
 }
 
@@ -32,7 +33,7 @@ void XuLyMenu(int menu, BSTree& root)
 	int kq;
 	KeyType maNV;
 	NhanVien x;
-	double luong;
+	double luong, max, min;
 	int chieuCao;
 	BSTree temp;
 	system("CLS");
@@ -145,11 +146,32 @@ void XuLyMenu(int menu, BSTree& root)
 		cout << "\n\nNhap luong can xoa : ";
 		cin >> luong;
 		temp = root;
-		DeleteNode_LuongNho(luong, root, temp);
+		DeleteNode_SalaryLessThan(luong, root, temp);
 		cout << "\n\nDanh sach moi :\n";
 		Xuat_TieuDe();
 		PreOrder(root);
 		Xuat_KeDoi();
+	case 8:
+		cout << "\n8. Tim nhan vien co luong lon nhat va nho nhat\n";
+		cout << "\nDanh sach nhan vien theo thu tu NLR:\n";
+		Xuat_TieuDe();
+		PreOrder(root);
+		Xuat_KeDoi();
+		max = 0;
+		min = DBL_MAX;
+		FindMaxSalary(root, max);
+		FindMinSalary(root, min);
+		cout << "\nLuong lon nhat trong danh sach la " << max;
+		cout << "\nLuong nho nhat trong danh sach la " << min;
+		cout << "\nNhan vien co luong lon nhat la: ";
+		Xuat_TieuDe();
+		PrintNhanVien_BySalary(root, max);
+		Xuat_KeDoi();
+		cout << "\nNhan vien co luong nho nhat la: ";
+		Xuat_TieuDe();
+		PrintNhanVien_BySalary(root, min);
+		Xuat_KeDoi();
+		break;
 	default:
 		break;
 	}

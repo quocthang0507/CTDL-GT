@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string.h>
 #include <iomanip>
+#include <float.h>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main()
 
 void ChayChuongTrinh()
 {
-	int menu, soMenu = 7;
+	int menu, soMenu = 8;
 	BSTree root;
 	CreateBST(root);
 	do

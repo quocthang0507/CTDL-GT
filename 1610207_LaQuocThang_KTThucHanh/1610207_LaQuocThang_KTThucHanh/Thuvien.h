@@ -101,13 +101,49 @@ NhanVien Search_Replace(KeyType x, BSTree root, double luong)
 	return NULL_DATA;
 }
 
-void DeleteNode_LuongNho(double luong, BSTree& root, BSTree temp)
+void DeleteNode_SalaryLessThan(double luong, BSTree& root, BSTree temp)
 {
 	if (temp != NULL)
 	{
 		if (temp->info.luong < luong)
 			DeleteNode(temp->info, root);
-		DeleteNode_LuongNho(luong, root, temp->left);
-		DeleteNode_LuongNho(luong, root, temp->right);
+		DeleteNode_SalaryLessThan(luong, root, temp->left);
+		DeleteNode_SalaryLessThan(luong, root, temp->right);
+	}
+}
+
+void FindMaxSalary(BSTree root, double &MAX)
+{
+	if (root != NULL) {
+		if (MAX < root->info.luong)
+		{
+			MAX = root->info.luong;
+		}
+		FindMaxSalary(root->left, MAX);
+		FindMaxSalary(root->right, MAX);
+	}
+}
+
+void FindMinSalary(BSTree root, double& MIN)
+{
+	if (root != NULL) {
+		if (MIN > root->info.luong)
+		{
+			MIN = root->info.luong;
+		}
+		FindMinSalary(root->left, MIN);
+		FindMinSalary(root->right, MIN);
+	}
+}
+
+void PrintNhanVien_BySalary(BSTree root, double luong)
+{
+	if (root != NULL)
+	{
+		if (root->info.luong == luong) {
+			Xuat_1NV(root->info);
+		}
+		PrintNhanVien_BySalary(root->left, luong);
+		PrintNhanVien_BySalary(root->right, luong);
 	}
 }
